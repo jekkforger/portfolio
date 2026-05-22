@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import { Menu, X } from "lucide-react";
-
 import LanguageToggle from "./language-toggle";
 
 export default function Navbar({

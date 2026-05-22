@@ -5,12 +5,18 @@
   --foreground: #ffffff;
 
   --primary: #00ff88;
+
   --card: rgba(255,255,255,0.03);
   --border: rgba(255,255,255,0.06);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+* {
+  cursor: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,34 +27,43 @@ body {
 
   font-family: Arial, Helvetica, sans-serif;
 
-  background-image:
-    radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+  position: relative;
 
-  background-size: 24px 24px;
+  /* GRID */
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+  background-size: 40px 40px;
 }
 
-/* ===== ANIMATED GLOBAL BACKGROUND ===== */
+/* =============================== */
+/* ANIMATED BACKGROUND */
+/* =============================== */
 
 body::before {
   content: "";
 
   position: fixed;
 
-  inset: -200px;
+  inset: -300px;
 
-  z-index: -2;
+  z-index: -3;
 
   background:
-    radial-gradient(circle at 20% 20%, rgba(0,255,136,0.14), transparent 25%),
-    radial-gradient(circle at 80% 30%, rgba(0,255,136,0.10), transparent 25%),
-    radial-gradient(circle at 50% 80%, rgba(0,180,255,0.08), transparent 25%);
+    radial-gradient(circle at 20% 20%, rgba(0,255,136,0.16), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(0,255,136,0.12), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(0,180,255,0.10), transparent 30%),
+    radial-gradient(circle at 30% 70%, rgba(0,255,136,0.08), transparent 20%);
 
-  animation: gradientMove 18s ease infinite;
+  animation:
+    gradientMove 20s ease infinite alternate,
+    rotateBg 40s linear infinite;
 
   pointer-events: none;
 }
 
-/* ===== BLUR LAYER ===== */
+/* EXTRA BLUR */
 
 body::after {
   content: "";
@@ -57,14 +72,16 @@ body::after {
 
   inset: 0;
 
-  z-index: -1;
+  z-index: -2;
 
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(120px);
 
   pointer-events: none;
 }
 
-/* ===== GLOBAL LAYOUT ===== */
+/* =============================== */
+/* GLOBAL LAYOUT */
+/* =============================== */
 
 main {
   position: relative;
@@ -76,7 +93,9 @@ section {
   background: transparent;
 }
 
-/* ===== CONTAINER ===== */
+/* =============================== */
+/* CONTAINER */
+/* =============================== */
 
 .container-custom {
   max-width: 1200px;
@@ -87,69 +106,185 @@ section {
   padding-right: 24px;
 }
 
-/* ===== SECTION SPACING ===== */
+/* =============================== */
+/* SECTION */
+/* =============================== */
 
 .section-padding {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
-/* ===== CARD ===== */
+/* =============================== */
+/* CARD */
+/* =============================== */
 
 .card {
-  background: var(--card);
+  background: rgba(255,255,255,0.03);
 
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.06);
 
   backdrop-filter: blur(20px);
 
   border-radius: 24px;
 
   transition:
-    transform 0.3s ease,
-    border 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.35s ease,
+    border 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
 }
 
-/* ===== CARD HOVER ===== */
+/* CARD HOVER */
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 
-  border-color: rgba(0,255,136,0.3);
+  border-color: rgba(0,255,136,0.35);
+
+  background: rgba(255,255,255,0.045);
 
   box-shadow:
-    0 0 40px rgba(0,255,136,0.12),
-    0 0 80px rgba(0,255,136,0.06);
+    0 0 40px rgba(0,255,136,0.15),
+    0 0 80px rgba(0,255,136,0.08);
 }
 
-/* ===== GLOW ===== */
+/* =============================== */
+/* GLOW */
+/* =============================== */
 
 .glow {
-  box-shadow: 0 0 40px rgba(0,255,136,0.15);
+  box-shadow:
+    0 0 40px rgba(0,255,136,0.18),
+    0 0 80px rgba(0,255,136,0.08);
 }
 
-/* ===== ANIMATION ===== */
+/* =============================== */
+/* FLOATING ORBS */
+/* =============================== */
+
+.orb {
+  position: absolute;
+
+  border-radius: 9999px;
+
+  filter: blur(120px);
+
+  opacity: 0.18;
+
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 320px;
+  height: 320px;
+
+  background: #00ff88;
+
+  top: 5%;
+  left: -120px;
+}
+
+.orb-2 {
+  width: 280px;
+  height: 280px;
+
+  background: #00bfff;
+
+  bottom: 10%;
+  right: -120px;
+
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 220px;
+  height: 220px;
+
+  background: #00ff88;
+
+  top: 50%;
+  left: 50%;
+
+  animation-delay: 4s;
+}
+
+/* =============================== */
+/* SCROLLBAR */
+/* =============================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,255,136,0.4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,255,136,0.7);
+}
+
+/* =============================== */
+/* SELECTION */
+/* =============================== */
+
+::selection {
+  background: rgba(0,255,136,0.3);
+  color: white;
+}
+
+/* =============================== */
+/* ANIMATION */
+/* =============================== */
 
 @keyframes gradientMove {
-
   0% {
     transform: translate(0px, 0px) scale(1);
   }
 
   25% {
-    transform: translate(-40px, 30px) scale(1.1);
+    transform: translate(-60px, 40px) scale(1.08);
   }
 
   50% {
-    transform: translate(30px, -20px) scale(1.15);
+    transform: translate(40px, -30px) scale(1.15);
   }
 
   75% {
-    transform: translate(-20px, -40px) scale(1.05);
+    transform: translate(-30px, -50px) scale(1.05);
   }
 
   100% {
-    transform: translate(0px, 0px) scale(1);
+    transform: translate(20px, 20px) scale(1);
+  }
+}
+
+@keyframes rotateBg {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+  100% {
+    transform: translateY(0px);
   }
 }
