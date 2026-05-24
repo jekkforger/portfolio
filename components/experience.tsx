@@ -16,6 +16,12 @@ export default function Experience({
             desc: "Mendokumentasikan kode, membuat UI/UX aplikasi presensi, dan mengembangkan frontend menggunakan ReactJS.",
           },
           {
+            title: "Software Developer",
+            company: "X Green Digital Solution",
+            year: "2025",
+            desc: "Mengembangkan aplikasi sesuai dengan kebutuhan klien.",
+          },
+          {
             title: "Data Annotator",
             company: "Kupu ID",
             year: "Sekarang",
@@ -28,6 +34,12 @@ export default function Experience({
             company: "PT Padepokan Tujuh Sembilan",
             year: "2024",
             desc: "Documented code, designed UI/UX for attendance applications, and developed frontend using ReactJS.",
+          },
+          {
+            title: "Software Developer",
+            company: "X Green Digital Solution",
+            year: "2025",
+            desc: "Developed applications based on client requirements.",
           },
           {
             title: "Data Annotator",
