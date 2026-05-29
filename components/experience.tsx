@@ -10,7 +10,7 @@ export default function Experience({
     lang === "id"
       ? [
           {
-            title: "Technical Writer & Frontend Developer",
+            title: "Technical Writer & Frontend Developer (Kerja Praktik)",
             company: "PT Padepokan Tujuh Sembilan",
             year: "2024",
             desc: "Mendokumentasikan kode, membuat UI/UX aplikasi presensi, dan mengembangkan frontend menggunakan ReactJS.",
@@ -30,7 +30,7 @@ export default function Experience({
         ]
       : [
           {
-            title: "Technical Writer & Frontend Developer",
+            title: "Technical Writer & Frontend Developer (Internship)",
             company: "PT Padepokan Tujuh Sembilan",
             year: "2024",
             desc: "Documented code, designed UI/UX for attendance applications, and developed frontend using ReactJS.",
